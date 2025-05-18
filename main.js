@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const { spawn } = require('child_process');
 const fs = require('fs').promises;
+const si = require('systeminformation');
 
 const userDataPath = app.getPath('userData');
 const serversFilePath = path.join(userDataPath, 'savedServers.json');
@@ -59,6 +60,34 @@ function createWindow() {
 	});
 
 	mainWindow.loadFile('ui/index.html');
+
+	setInterval(async () => {
+		try {
+			const mem = await si.mem();
+			const cpu = await si.currentLoad();
+			const networkStats = await si.networkStats('*'); // '*' for all interfaces
+
+			mainWindow.webContents.send('system-resources', {
+				memory: {
+					total: mem.total,
+					free: mem.free,
+					used: mem.used,
+					percent: mem.used / mem.total * 100,
+				},
+				cpu: {
+					currentLoad: cpu.currentLoad,
+				},
+				network: networkStats.length > 0 ? {
+					rxBytes: networkStats[0].rx_bytes,
+					txBytes: networkStats[0].tx_bytes,
+					rxSec: networkStats[0].rx_sec,
+					txSec: networkStats[0].tx_sec,
+				} : null,
+			});
+		} catch (error) {
+			console.error('Error fetching system resources:', error);
+		}
+  	}, 1000);
 
 	mainWindow.on('closed', () => {
 		mainWindow = null;
