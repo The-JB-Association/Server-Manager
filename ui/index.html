@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Server Manager</title>
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="top-bar">
+      <button id="add-server-button" class="modern-button">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="icon">
+          <path fill-rule="evenodd" d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z" clip-rule="evenodd" />
+        </svg>
+        Add Server
+      </button>
+      </header>
+
+    <nav class="server-tabs-container">
+      <div id="server-tabs" class="server-tabs">
+        </div>
+    </nav>
+
+    <main class="main-content">
+      <div id="no-server-selected" class="empty-state">
+        <h2>Server Manager</h2>
+        <p>Click the "Add Server" button to add a NodeJS server</p>
+      </div>
+      <div id="server-details" class="server-details" style="display: none;">
+        <div class="server-info-header">
+          <h3 id="server-name-display"></h3>
+          <p id="server-path-display" class="server-path"></p>
+        </div>
+        <div class="server-actions">
+          <button id="start-button" class="modern-button action-button start" disabled>Start</button>
+          <button id="stop-button" class="modern-button action-button stop" disabled>Stop</button>
+          <button id="remove-button" class="modern-button action-button remove">Remove</button>
+        </div>
+        <div class="console-output-area">
+          <div id="output-area" class="modern-console">
+            </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../renderer.js"></script>
+</body>
+</html>
