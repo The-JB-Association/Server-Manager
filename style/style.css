@@ -216,3 +216,9 @@ body {
 .server-console-output.active {
   display: block;
 }
+
+.resource-display {
+  color: #aaa;
+  font-size: 0.9em;
+  margin-left: 15px;
+}
