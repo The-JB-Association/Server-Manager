@@ -1,0 +1,71 @@
+# General OS and Editor junk
+.DS_Store
+.Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+System Volume Information/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Electron specific
+electron-builder/
+dist/
+release/
+out/
+
+# Packaging / Distribution
+*.exe
+*.dmg
+*.pkg
+*.msi
+*.app/
+*.deb
+*.rpm
+
+# Logs and temporary files
+*.log
+*.tmp
+temp/
+tmp/
+*.swp
+*.swo
+.vscode/tasks.json
+.vscode/launch.json
+.history/
+
+# Optional: If you use a specific editor/IDE
+.idea/
+.project
+.classpath
+*.iml
+*.ipr
+*.iws
+nbproject/
+.sourcetree/
+
+# Optional: If you use a specific testing framework
+coverage/
+test/output/
+
+# Optional: If you have environment variables
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+
+# Optional: If you use a build tool other than electron-builder
+build/
+
+# Ignore downloaded Electron cache (can save space)
+/electron/
+
+# Ignore 7-zip cache from electron-builder (related to your previous error)
+/electron-builder/Cache/

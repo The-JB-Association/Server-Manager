@@ -1,0 +1,30 @@
+{
+  "name": "tja-server-manager",
+  "version": "1.0.0",
+  "description": "A simple Node Server Manager",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --ia32 --x64"
+  },
+  "author": "Jonathan Mauler",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^36.2.1",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.tja.server-manager",
+    "productName": "TJA Server Manager",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "publish": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
